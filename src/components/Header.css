@@ -1,0 +1,17 @@
+.title{
+    font-size: 5vh;
+}
+.links{
+    font-size: 2vh;
+    text-align: right;
+}
+
+ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+li {
+    list-style-type: none;
+    padding: 0px 10px;
+}

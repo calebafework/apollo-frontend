@@ -1,11 +1,13 @@
 import './App.css';
+import Header from './components/Header'
+import CommentList from './components/CommentList'
+import Routes from './config/Routes'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1> Howdy poopy!</h1>
-      </header>
+    <div className= "App">
+      <Header/>
+      { Routes }
     </div>
   );
 }

@@ -1,14 +1,14 @@
-import React from 'react';
-import CommentList from '../components/CommentList'
-import Emotion from '../components/Emotion';
+import CommentList from "../components/CommentList"
+import React, {useState, useEffect} from 'react';
 
-const Comments = () => {
+const Comment = (props) => {
+    let [url, setUrl]= useState(null)
+
     return (
         <div className="commentlist">
             <CommentList/>
-            <Emotion/>
         </div>
     );
 }
 
-export default Comments;
+export default Comment;

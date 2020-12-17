@@ -1,9 +1,13 @@
+*{
+    background-color: #C8C1A6;
+}
+
 .title{
     font-size: 5vh;
 }
 .links{
     font-size: 2vh;
-    text-align: right;
+    margin-left: 4vh;
 }
 
 ul {

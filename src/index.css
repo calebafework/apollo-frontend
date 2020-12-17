@@ -1,9 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
 body {
   margin: 0;
   font-family: 'Playfair Display SC', serif;
-  background-color: whitesmoke;
+  color: #466d86;
+  background-color: #e9e5d5ed;
+  
 }
+.links{
+  font-family: 'Lato', sans-serif;
+  position: absolute;
+  right: 0;
+  top: 0;
 
+}
 /* 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

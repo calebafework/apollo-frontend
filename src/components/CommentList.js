@@ -16,10 +16,10 @@ const CommentList = () => {
     const allComments = comments.map((comment, index)=> {
         return (
             <div className="commentList">
-                {/* <Comment
+                <Comment
                     key={ index }
                     content = { comment.content }
-                /> */}
+                />
             </div>    
         );
     })

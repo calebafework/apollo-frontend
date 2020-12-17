@@ -1,5 +1,6 @@
 import React from 'react';
 import CommentShow from '../components/CommentShow';
+// import CreateComment from '../components/CreateComment';
 import CreateComment from '../components/CreateComment';
 
 const Home = (props) => {

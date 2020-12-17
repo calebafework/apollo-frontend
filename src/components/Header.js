@@ -20,9 +20,7 @@ const Header = () => {
 
                 <header className="title">Apollo </header>            
                 <div className="links">
-                    <ul>
-                        <li>All Comments</li>
-                    </ul>
+                    <Link to="/comments" style={{ color: "#466d86"}}>All Comments</Link> 
                 </div>            
             </div>
         </header>

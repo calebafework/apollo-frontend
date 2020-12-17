@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react';
 
 const Comment = (props) => {
-    let [url, setUrl]= useState(null)
 
     return (
         <div>

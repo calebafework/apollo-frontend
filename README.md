@@ -15,11 +15,10 @@ This was created using the PERN stack
     I want to be able to open the playlist in spotify so I may save it
     As a user I want to be abel to make multiple input submissions
 ## Wireframes
-    ![apollo1](https://raw.githubusercontent.com/calebafework/apollo-frontend/master/apollo1.jpeg)
-    ![apollo2](https://raw.githubusercontent.com/calebafework/apollo-frontend/master/apollo2.jpeg)
+  
 
 ## Entity Relationship Diagrams
-    ![apollo3](https://raw.githubusercontent.com/calebafework/apollo-frontend/master/apollo3.jpeg)
+    
 
 ## Unsolved Problems and future updates
     Unfortunately I have been having state issue which  isn't allowing the frontend to display the playlist

@@ -10,18 +10,18 @@ This was created using the PERN stack
 
 
 ## User Stories
-    -As a user I want to be able to login using my Spotify credentials
-    -As a user I want a playlist created based off the tone of my input 
-    -I want to be able to open the playlist in spotify so I may save it
-    -As a user I want to be abel to make multiple input submissions
+    As a user I want to be able to login using my Spotify credentials
+    As a user I want a playlist created based off the tone of my input 
+    I want to be able to open the playlist in spotify so I may save it
+    As a user I want to be abel to make multiple input submissions
 ## Wireframes
-    ![wireframe 1](apollo1.jpeg)
-    ![wireframe 2](apollo2.jpeg)
+    ![wireframe 1](./apollo1.jpeg)
+    ![wireframe 2](./apollo2.jpeg)
 
 ## Entity Relationship Diagrams
-    ![wireframe erd](apollo3.jpeg)
+    ![wireframe erd](./apollo3.jpeg)
 
 ## Unsolved Problems and future updates
-    -Unfortunately I have been having state issue which  isn't allowing the frontend to display the playlist
-    -I would like to add a tone attribute to the comment model so I could fetch the API on the backend instead
-    -I would love to use twitter API to take recent tweets as an input instead of using a form on the site
+    Unfortunately I have been having state issue which  isn't allowing the frontend to display the playlist
+    I would like to add a tone attribute to the comment model so I could fetch the API on the backend instead
+    I would love to use twitter API to take recent tweets as an input instead of using a form on the site

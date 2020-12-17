@@ -5,6 +5,7 @@ import CommentModel from "../models/comment"
 const CommentShow = (props) => {
     const [comment, setComment] = useState(null)
     const [editMode, setEditMode] = useState(false)
+    const [url, setUrl]= useState(null)   
     
     const location = useLocation()
     
@@ -15,6 +16,7 @@ const CommentShow = (props) => {
 
     useEffect(() => {
         setComment(location.state.comment.content)
+        setUrl(location.state.url)
         // getInfo()
     },[])
 
@@ -69,6 +71,7 @@ const CommentShow = (props) => {
 
     return (
         <div>
+            <iframe src={"https://open.spotify.com/embed/playlist/"+ url} width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
             { editMode ? editInfo : displayInfo }
                 <div>           
                     <button onClick={ handleDelete } className="deleteButton">Delete</button>

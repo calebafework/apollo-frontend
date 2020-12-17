@@ -3,32 +3,36 @@ import CommentModel from '../models/comment'
 import createComment from './createComment.css'
 import axios from 'axios'
 
-let playlist = {
-    anger: '20Bbvjfo6UGSieemnaa62R',
-    disgust: 'disgustplaylist',
-    fear:'fearplaylist',
-    joy: 'joyplaylist',
-    sadness:'sadnessplaylist',
-    //if undefined, playlist
-}
 
 class CreateComment extends Component {
     state = {
         content: "",
-        completed: false
+        completed: false,
+        url: "",
+    }
+
+    playlist = {
+        anger: '20Bbvjfo6UGSieemnaa62R',
+        disgust: '6SugLh3r9BscE1Srn5Rf6B',
+        fear:'6SugLh3r9BscE1Srn5Rf6B',
+        joy: '6SugLh3r9BscE1Srn5Rf6B',
+        sadness:'6SugLh3r9BscE1Srn5Rf6B',
+        //if undefined, playlist
     }
 
     handleSubmit = (event) => {
         event.preventDefault()
         axios.post("http://localhost:4000/api/v1/emotion")
         .then(tone => {
-            console.log(playlist.fear)
+            console.log(this.playlist.fear)
+            // this.state.url = this.playlist.tone
+            this.setState({url: this.tone}) 
         }).catch(err => console.log("TONE ERROR", err))
         CommentModel.create(this.state)
         .then(data => {
             this.props.history.push({
                 pathname: '/comment',
-                state: { comment: data }
+                state: { comment: data, url: this.state.url },
             })
         })
     }

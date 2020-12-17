@@ -15,8 +15,8 @@ This was created using the PERN stack
     I want to be able to open the playlist in spotify so I may save it
     As a user I want to be abel to make multiple input submissions
 ## Wireframes
-    ![wireframe 1](./apollo1.jpeg)
-    ![wireframe 2](./apollo2.jpeg)
+    ![wireframe 1](apollo1.jpeg)
+    ![wireframe 2](apollo2.jpeg)
 
 ## Entity Relationship Diagrams
     ![wireframe erd](./apollo3.jpeg)

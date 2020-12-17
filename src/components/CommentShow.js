@@ -1,23 +1,27 @@
 import React, { useEffect, useState } from 'react';
+import { Redirect, useLocation } from 'react-router-dom';
 import CommentModel from "../models/comment"
 
-const CommentShow = ({history, match}) => {
+const CommentShow = (props) => {
     const [comment, setComment] = useState(null)
     const [editMode, setEditMode] = useState(false)
-
+    
+    const location = useLocation()
+    
     const getInfo = async() => {
-        const info = await CommentModel.show(match.params.id)
+        const info = await CommentModel.show()
         setComment(info)
     }
 
     useEffect(() => {
-        getInfo()
+        setComment(location.state.comment.content)
+        // getInfo()
     },[])
 
     const handleDelete = async() => {
         const res = await CommentModel.delete(comment.id)
         console.log(res)
-        history.push('/')
+        props.history.push('/')
     }
     
     const handleUpdate = async () => {
@@ -32,7 +36,7 @@ const CommentShow = ({history, match}) => {
 
     const displayInfo = (
         <div>
-                <h1>{ comment.content }</h1>
+            { comment ? <h4>{ comment }</h4> : <h4>No comment</h4>} 
         </div>
     )
 
@@ -66,10 +70,9 @@ const CommentShow = ({history, match}) => {
     return (
         <div>
             { editMode ? editInfo : displayInfo }
-            {/* { localStorage.getItem('id') ?  */}
                 <div>           
-                    <button onClick={ handleDelete }>Delete</button>
-                    <button onClick={ editComment }>{ editMode ? "Save Changes" : "Edit" }</button>
+                    <button onClick={ handleDelete } className="deleteButton">Delete</button>
+                    <button onClick={ editComment } className="editButton">{ editMode ? "Save Changes" : "Edit" }</button>
                 </div>    
         </div> 
     );

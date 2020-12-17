@@ -1,6 +1,5 @@
 import React from 'react'
 import { Switch, Router, Route } from 'react-router-dom'
-import CommentShow from '../components/CommentShow'
 import Home from '../pages/Home'
 import Comments from '../pages/Comments'
 import Comment from '../pages/Comment'

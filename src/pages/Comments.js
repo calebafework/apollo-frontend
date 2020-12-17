@@ -3,7 +3,7 @@ import CommentList from '../components/CommentList'
 
 const Comments = () => {
     return (
-        <div>
+        <div className="commentlist">
             <CommentList/>
         </div>
     );

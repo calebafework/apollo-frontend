@@ -1,0 +1,11 @@
+.inputForm {
+    width: 80vh;
+    height: 15vh;
+}
+.button {
+    margin-top: 2vh;
+    font-family: 'Playfair Display SC', serif;
+}
+.form {
+    margin-top: 10vh;
+}

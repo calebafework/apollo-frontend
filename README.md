@@ -10,7 +10,7 @@ This was created using the PERN stack
 
 
 ## User Stories
-    -As a user I want to be abel to login using my Spotify credentials
+    -As a user I want to be able to login using my Spotify credentials
     -As a user I want a playlist created based off the tone of my input 
     -I want to be able to open the playlist in spotify so I may save it
     -As a user I want to be abel to make multiple input submissions

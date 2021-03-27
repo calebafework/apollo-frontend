@@ -5,11 +5,11 @@ import Comment from './Comment'
 
 export default function Emotion() {
     const playlist = {
-        anger: 'angerplaylist',
-        disgust: 'disgustplaylist',
-        fear:'fearplaylist',
-        joy: 'joyplaylist',
-        sadness:'sadnessplaylist'
+        anger: '20Bbvjfo6UGSieemnaa62R',
+        disgust: '6SugLh3r9BscE1Srn5Rf6B',
+        fear:'6SugLh3r9BscE1Srn5Rf6B',
+        joy: '6SugLh3r9BscE1Srn5Rf6B',
+        sadness:'6SugLh3r9BscE1Srn5Rf6B',
     }
     
     const getTone = (text) => {

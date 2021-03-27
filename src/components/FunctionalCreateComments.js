@@ -25,11 +25,12 @@ export default function FunctionalCreateComments(props) {
         axios.post("http://localhost:4000/api/v1/emotion")
         .then(tone => {
             // state.url = playlist.tone
+            console.log(tone)
             setUrl(tone)
         }).catch(err => console.log("TONE ERROR", err))
         CommentModel.create(content)
         .then(data => {
-            console.log(data)
+            console.log("data")
             props.history.push("/comment" )
         })
     }

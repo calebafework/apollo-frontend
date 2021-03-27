@@ -1,20 +1,32 @@
-import React, { Component } from 'react'
+import React, { Component, useState } from 'react'
 import CommentModel from '../models/comment'
 import createComment from './createComment.css'
+import axios from 'axios';
 
 class CreateComment extends Component {
     state = {
         content: "",
-        completed: false
+        completed: false,
+        url: "",
     }
-
+    // post to tone analyzer and return the tone
+    // tone must be stored in EMOTION MODEL = {mood: string}
+    //  
     handleSubmit = (event) => {
         event.preventDefault()
+        // const text = comment.content
+        axios
+        .post("http://localhost:4000/api/v1/emotion")
+        .then(tone => {
+            // this.state.url = this.playlist.tone
+            this.setState({url: this.tone}) // coming back undefined
+        }).catch(err => console.log("TONE ERROR", err))
         CommentModel.create(this.state)
         .then(data => {
             this.props.history.push({
                 pathname: '/comment',
-                state: { comment: data }
+                // state: { comment: data, url: this.state.url },
+                state: { comment: data, emotions: this.state.url }
             })
         })
     }

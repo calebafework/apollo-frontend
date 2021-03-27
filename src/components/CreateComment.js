@@ -14,10 +14,17 @@ class CreateComment extends Component {
     //
     handleSubmit = (event) => {
         event.preventDefault()
-        // const text = comment.content
-        axios
-        .post("http://localhost:4000/api/v1/emotion")
+
+        const text = this.state.content
+        axios({
+            method: 'post',
+            url: "http://localhost:4000/api/v1/emotion",
+            data: {
+                text,
+            },
+        })
         .then(tone => {
+            console.log(tone);
             // this.state.url = this.playlist.tone
             this.setState({url: this.tone}) // coming back undefined
         }).catch(err => console.log("TONE ERROR", err))

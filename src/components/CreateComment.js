@@ -11,7 +11,7 @@ class CreateComment extends Component {
     }
     // post to tone analyzer and return the tone
     // tone must be stored in EMOTION MODEL = {mood: string}
-    //  
+    //
     handleSubmit = (event) => {
         event.preventDefault()
         // const text = comment.content
@@ -24,7 +24,7 @@ class CreateComment extends Component {
         CommentModel.create(this.state)
         .then(data => {
             this.props.history.push({
-                pathname: '/comment',
+                pathname: `/comment/${data.id}`,
                 // state: { comment: data, url: this.state.url },
                 state: { comment: data, emotions: this.state.url }
             })
@@ -47,7 +47,7 @@ class CreateComment extends Component {
                 <form onSubmit={ this.handleSubmit } >
                     <div className="form-input">
                         {/* Controlled Input */}
-                        <input 
+                        <input
                         type="text"
                         name="content"
                         onChange={ this.handleChange }
@@ -62,4 +62,4 @@ class CreateComment extends Component {
     }
 }
 
-export default CreateComment; 
+export default CreateComment;

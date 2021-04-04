@@ -27,10 +27,10 @@ export default class CommentModel {
             }
         })
     }
-    //What should replace the ID? maybe emotions?
-    static show(data) {
+  
+    static async showAllComments() {
         return fetch(`${REACT_APP_API_URL}/comment`)
-            .then(res => res)
+            .then(res => res.json())
     }
     static index() {
         return fetch(`${REACT_APP_API_URL}/comment`)

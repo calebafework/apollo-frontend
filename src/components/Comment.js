@@ -1,7 +1,6 @@
-// import React, {useState} from 'react';
+import React from 'react';
 
 const Comment = (props) => {
-    // let useState = (null)
     
     return (
         <div>

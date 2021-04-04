@@ -11,6 +11,7 @@ const history = createBrowserHistory();
 // if passing history as history , we must use components "verbose"
 // in a js object, you can do the short handed way ie history = history 
 
+
 export default(
     <Router history={ history }>
         <Switch>

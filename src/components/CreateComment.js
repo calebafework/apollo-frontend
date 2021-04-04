@@ -15,12 +15,10 @@ import PropTypes from 'prop-types'
 // get comment by id on backend 
 // comment page and comment component 
 
-function CreateComment(props) {
+function CreateComment({ history }) {
     const [url, setUrl]= useState(null)
     const [content, setContent] = useState("")
     const [completed, setCompleted] = useState(false)
-
-    const history = useHistory()
 
     const playlist = {
         anger: '20Bbvjfo6UGSieemnaa62R',
@@ -31,20 +29,14 @@ function CreateComment(props) {
         //if undefined, playlist
     }
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault()
-        axios.post("http://localhost:4000/api/v1/emotion")
-        .then(tone => {
-            // state.url = playlist.tone
-            console.log(tone)
-            setUrl(tone)
-        }).catch(err => console.log("TONE ERROR", err))
-        CommentModel.create(content)
-        .then(data => {
-            console.log("data")
-            props.history.push("/comment" )
-        })
-    }
+        const res = await CommentModel.create({content});
+        console.log(res)
+        if (res.id) {
+            history.push(`/comment/${res.id}`);
+        }
+     };
 
     const handleChange = (event) => {
         if (event.target.type !== 'text') {

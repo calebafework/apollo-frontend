@@ -1,74 +1,79 @@
-import React, { Component, useState } from 'react';
-import CommentModel from '../models/comment';
-import createComment from './createComment.css';
-import axios from 'axios';
+import React, { useState, useEffect }from 'react'
+import { useHistory } from 'react-router-dom'
+import CommentModel from '../models/comment'
+import axios from 'axios'
+import PropTypes from 'prop-types'
 
-class CreateComment extends Component {
-    state = {
-        content: '',
-        completed: false,
-        url: '',
-        tone: null,
-    };
-    // post to tone analyzer and return the tone
-    // tone must be stored in EMOTION MODEL = {mood: string}
-    //
-    handleSubmit = event => {
-        event.preventDefault();
+// always destructure props
+// MAKE sure to use {}
+// prop types - its something included in react where you essentially tell react to pass through said type
+// of props in the objects {} we are passing 
+// routes need to be changed to reflect working routes
+// emotion model needs to be switched to create comment
+// any time emotion is called. remove it 
+// emotion is now in createComment 
+// get comment by id on backend 
+// comment page and comment component 
 
-        const text = this.state.content;
-        axios({
-            method: 'post',
-            url: 'http://localhost:4000/api/v1/emotion',
-            data: {
-                text,
-            },
-        })
-            .then(tone => {
-                console.log(tone);
+function CreateComment(props) {
+    const [url, setUrl]= useState(null)
+    const [content, setContent] = useState("")
+    const [completed, setCompleted] = useState(false)
 
-                // this.state.url = this.playlist.tone
-                this.setState({ emotion: tone }); // coming back undefined
-            })
-            .catch(err => console.log('TONE ERROR', err));
+    const history = useHistory()
 
-        CommentModel.create(this.state).then(data => {
-            this.props.history.push({
-                pathname: `/comment/${data.id}`,
-                // state: { comment: data, url: this.state.url },
-                state: { comment: data, emotion: this.state.emotion },
-            });
-        });
-    };
-
-    handleChange = event => {
-        if (event.target.type !== 'text') {
-            this.setState({ completed: !this.state.completed });
-        }
-        this.setState({
-            [event.target.name]: event.target.value,
-        });
-    };
-
-    render() {
-        return (
-            <div className='form'>
-                <form onSubmit={this.handleSubmit}>
-                    <div className='form-input'>
-                        {/* Controlled Input */}
-                        <input
-                            type='text'
-                            name='content'
-                            onChange={this.handleChange}
-                            value={this.state.content}
-                            className='inputForm'
-                        />
-                    </div>
-                    <input type='submit' value='Curate' className='button' />
-                </form>
-            </div>
-        );
+    const playlist = {
+        anger: '20Bbvjfo6UGSieemnaa62R',
+        disgust: '6SugLh3r9BscE1Srn5Rf6B',
+        fear:'6SugLh3r9BscE1Srn5Rf6B',
+        joy: '6SugLh3r9BscE1Srn5Rf6B',
+        sadness:'6SugLh3r9BscE1Srn5Rf6B',
+        //if undefined, playlist
     }
+
+    const handleSubmit = (event) => {
+        event.preventDefault()
+        axios.post("http://localhost:4000/api/v1/emotion")
+        .then(tone => {
+            // state.url = playlist.tone
+            console.log(tone)
+            setUrl(tone)
+        }).catch(err => console.log("TONE ERROR", err))
+        CommentModel.create(content)
+        .then(data => {
+            console.log("data")
+            props.history.push("/comment" )
+        })
+    }
+
+    const handleChange = (event) => {
+        if (event.target.type !== 'text') {
+            setCompleted(!completed)
+        }
+        setContent(event.target.value)
+    }
+
+    return (
+        <div className="form">
+            <form onSubmit={(event) => handleSubmit(event) } >
+                <div className="form-input">
+                    {/* Controlled Input */}
+                    <input 
+                    type="text"
+                    name="content"
+                    onChange={(event) => handleChange(event) }
+                    value={ content }
+                    className="inputForm"
+                    />
+                </div>
+                <input type="submit" value="Curate" className="button"/>
+            </form>
+        </div>
+    )
 }
 
-export default CreateComment;
+CreateComment.propTypes = {
+
+};
+
+export default CreateComment

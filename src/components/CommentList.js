@@ -1,7 +1,7 @@
 import React, { useState, useEffect }from 'react';
 import Comment from './Comment'
 import CommentModel from '../models/comment'
-import commentList from './commentList.css'
+// import commentList from './commentList.css'
 
 const CommentList = () => {
     const [comments, setComments] = useState([])

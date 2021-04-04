@@ -1,7 +1,7 @@
-import React, {useState, useEffect} from 'react';
+// import React, {useState} from 'react';
 
 const Comment = (props) => {
-    let [url, setUrl] = useState(null)
+    // let useState = (null)
     
     return (
         <div>

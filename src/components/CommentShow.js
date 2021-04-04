@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Redirect, useLocation } from 'react-router-dom';
+import {useLocation } from 'react-router-dom';
 import CommentModel from '../models/comment';
 
 const playlist = {

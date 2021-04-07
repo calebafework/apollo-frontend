@@ -16,7 +16,7 @@ export default(
     <Router history={ history }>
         <Switch>
             <Route exact path='/' component={ Home }/>
-            <Route path='/comment/:id' component={ CommentPage }/>
+            <Route path='/comment/id' component={ CommentPage }/>
             <Route path='/comment' component={ Comments }/>
             <Route component={ NotFound }/>
         </Switch>

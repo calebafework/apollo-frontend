@@ -1,3 +1,5 @@
+import { propTypes } from "react-bootstrap/esm/Image"
+
 const REACT_APP_API_URL = "http://localhost:4000/api/v1"
 
 export default class CommentModel {
@@ -32,8 +34,9 @@ export default class CommentModel {
         return fetch(`${REACT_APP_API_URL}/comment`)
             .then(res => res.json())
     }
-    static index() {
-        return fetch(`${REACT_APP_API_URL}/comment`)
+
+    static async showById(id) {
+        return fetch(`${REACT_APP_API_URL}/comment/${id}`)
             .then(res => res.json())
     }
 }

@@ -33,6 +33,7 @@ function CreateComment({ history }) {
         event.preventDefault()
         const res = await CommentModel.create({content});
         console.log(res)
+        console.log(res.id)
         if (res.id) {
             history.push(`/comment/${res.id}`);
         }

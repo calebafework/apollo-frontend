@@ -30,8 +30,3 @@ const Comment = () => {
 };
 
 export default Comment;
-
-// const getAll = async () => {
-//     return await CommentModel.showAllComments();
-//   };
-//   const res = getAll();

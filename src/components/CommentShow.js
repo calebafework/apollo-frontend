@@ -1,6 +1,15 @@
-import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import React, { useState } from "react";
 import CommentModel from "../models/comment";
+// use the props from comment (id,tone,content)
+// use these props to fill in correct spots
+// passed as props not hooks 
+// id = comment.id - parent component 
+// content = comment.content - parent component 
+// make sure to destructure off props 
+// add weird codes to end of the url based on tone. 
+// if the tone is anger add tone below. 
+// line 75 we must add 
+
 
 const playlist = {
   anger: "20Bbvjfo6UGSieemnaa62R",
@@ -13,20 +22,7 @@ const playlist = {
 const CommentShow = (props) => {
   const [comment, setComment] = useState(null);
   const [editMode, setEditMode] = useState(false);
-  const [url, setUrl] = useState(playlist[props.emotion]);
 
-  const location = useLocation();
-
-  const getInfo = async () => {
-    const info = await CommentModel.show();
-    setComment(info);
-  };
-
-  useEffect(() => {
-    setComment(location.state.comment);
-    setUrl(location.state.url);
-    getInfo();
-  }, []);
 
   const handleDelete = async () => {
     const res = await CommentModel.delete(comment.id);
@@ -37,7 +33,6 @@ const CommentShow = (props) => {
   const handleUpdate = async () => {
     const res = await CommentModel.update(comment);
     console.log(res);
-    getInfo();
   };
 
   if (!comment) {
@@ -79,7 +74,7 @@ const CommentShow = (props) => {
   return (
     <div>
       <iframe
-        src={"https://open.spotify.com/embed/playlist/" + url}
+        src={"https://open.spotify.com/embed/playlist/"}
         width="300"
         height="380"
         frameBorder="0"

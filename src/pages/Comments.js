@@ -21,7 +21,7 @@ const Comment = () => {
       setComments(data);
     });
   }, []);
-
+  
   return (
     <div className="commentlist">
       <CommentList comments={comments} />

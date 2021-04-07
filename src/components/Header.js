@@ -21,7 +21,7 @@ const Header = () => {
 
                 <header className="title">Apollo </header>            
                 <div className="links">
-                    <Link to="/comments" style={{ color: "#466d86"}}>All Comments</Link> 
+                    <Link to="/comment" style={{ color: "#466d86"}}>All Comments</Link> 
                 </div>            
             </div>
         </header>

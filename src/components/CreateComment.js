@@ -1,7 +1,6 @@
 import React, { useState, useEffect }from 'react'
 import { useHistory } from 'react-router-dom'
 import CommentModel from '../models/comment'
-import axios from 'axios'
 import PropTypes from 'prop-types'
 
 // always destructure props
@@ -36,7 +35,7 @@ function CreateComment({ history }) {
         if (res.id) {
             history.push(`/comment/${res.id}`);
         }
-     };
+    };
 
     const handleChange = (event) => {
         if (event.target.type !== 'text') {

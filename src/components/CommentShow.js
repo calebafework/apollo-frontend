@@ -1,6 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import React, { useState } from "react";
 import CommentModel from "../models/comment";
+
+//use the props from the comment: id , tone , content
+//pass as props not hooks, set id to comment.id etc.
+//destructure that off the properties
 
 const playlist = {
   anger: "20Bbvjfo6UGSieemnaa62R",
@@ -13,20 +16,6 @@ const playlist = {
 const CommentShow = (props) => {
   const [comment, setComment] = useState(null);
   const [editMode, setEditMode] = useState(false);
-  const [url, setUrl] = useState(playlist[props.emotion]);
-
-  const location = useLocation();
-
-  const getInfo = async () => {
-    const info = await CommentModel.show();
-    setComment(info);
-  };
-
-  useEffect(() => {
-    setComment(location.state.comment);
-    setUrl(location.state.url);
-    getInfo();
-  }, []);
 
   const handleDelete = async () => {
     const res = await CommentModel.delete(comment.id);
@@ -37,7 +26,6 @@ const CommentShow = (props) => {
   const handleUpdate = async () => {
     const res = await CommentModel.update(comment);
     console.log(res);
-    getInfo();
   };
 
   if (!comment) {
@@ -79,7 +67,7 @@ const CommentShow = (props) => {
   return (
     <div>
       <iframe
-        src={"https://open.spotify.com/embed/playlist/" + url}
+        src={"https://open.spotify.com/embed/playlist/" }
         width="300"
         height="380"
         frameBorder="0"

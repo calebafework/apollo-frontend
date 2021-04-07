@@ -27,13 +27,12 @@ export default class CommentModel {
             }
         })
     }
-  
     static async showAllComments() {
         return fetch(`${REACT_APP_API_URL}/comment`)
             .then(res => res.json())
     }
-    static index() {
-        return fetch(`${REACT_APP_API_URL}/comment`)
+    static async showById(id) {
+        return fetch(`${REACT_APP_API_URL}/comment/${id}`)
             .then(res => res.json())
     }
 }

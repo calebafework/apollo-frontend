@@ -19,7 +19,7 @@ export default class CommentModel {
             body: JSON.stringify(data)
         })
     }    
-    static delete(data) {
+    static delete() {
         return fetch(`${REACT_APP_API_URL}/comment`, {
             method: "DELETE",
             headers: {

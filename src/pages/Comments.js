@@ -1,12 +1,16 @@
 import CommentList from "../components/CommentList";
 import React, { useState, useEffect } from "react";
 import CommentModel from "../models/comment";
+
+
 // this component is rendered from a route that doesnt req props
 // render only needed during CLASS based components , not functional components
 // only return req for functional components
 // research differences !
 // get data from useeffect function through the state
 // we want to use a UseState hook to be able to pass comments as data in CommentList html return
+
+
 const Comment = () => {
   const [comments, setComments] = useState(null);
   useEffect(() => {

@@ -17,10 +17,20 @@ import CommentModel from "../models/comment";
 //setCommentId = match.params.id ??
 
 const CommentPage = ({ match }) => {
+  const playlist = {
+    anger: "20Bbvjfo6UGSieemnaa62R",
+    disgust: "6SugLh3r9BscE1Srn5Rf6B",
+    fear: "6SugLh3r9BscE1Srn5Rf6B",
+    joy: "6SugLh3r9BscE1Srn5Rf6B",
+    sadness: "6SugLh3r9BscE1Srn5Rf6B",
+  };
+
   const [comment, setComment] = useState(null);
+
   useEffect(() =>{
     CommentModel.showById(match.params.id).then((data) => {
-      console.log(data)
+      console.log("data", data, playlist, playlist[data.tone])
+      data.playlistUrl = playlist[data.tone]
       setComment(data) 
     })
   },[match.params.id]);

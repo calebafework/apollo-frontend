@@ -15,18 +15,8 @@ import PropTypes from 'prop-types'
 // comment page and comment component 
 
 function CreateComment({ history }) {
-    const [url, setUrl]= useState(null)
     const [content, setContent] = useState("")
     const [completed, setCompleted] = useState(false)
-
-    const playlist = {
-        anger: '20Bbvjfo6UGSieemnaa62R',
-        disgust: '6SugLh3r9BscE1Srn5Rf6B',
-        fear:'6SugLh3r9BscE1Srn5Rf6B',
-        joy: '6SugLh3r9BscE1Srn5Rf6B',
-        sadness:'6SugLh3r9BscE1Srn5Rf6B',
-        //if undefined, playlist
-    }
 
     const handleSubmit = async (event) => {
         event.preventDefault()
@@ -38,6 +28,7 @@ function CreateComment({ history }) {
     };
 
     const handleChange = (event) => {
+        event.preventDefault()
         if (event.target.type !== 'text') {
             setCompleted(!completed)
         }

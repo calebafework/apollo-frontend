@@ -28,7 +28,6 @@ function CreateComment({ history }) {
     };
 
     const handleChange = (event) => {
-        event.preventDefault()
         if (event.target.type !== 'text') {
             setCompleted(!completed)
         }

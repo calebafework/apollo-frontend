@@ -6,18 +6,17 @@ import CommentModel from "../models/comment";
 //destructure that off the properties
 
 const CommentShow = (props) => {
-  // const playlist = {
-  //   anger: "20Bbvjfo6UGSieemnaa62R",
-  //   disgust: "6SugLh3r9BscE1Srn5Rf6B",
-  //   fear: "6SugLh3r9BscE1Srn5Rf6B",
-  //   joy: "6SugLh3r9BscE1Srn5Rf6B",
-  //   sadness: "6SugLh3r9BscE1Srn5Rf6B",
-  // };
-  
   // const [comment, setComment] = useState(null);
   // const [editMode, setEditMode] = useState(false);
   // console.log(props.comment)
-  
+  const playlist = {
+    anger: "20Bbvjfo6UGSieemnaa62R",
+    disgust: "6SugLh3r9BscE1Srn5Rf6B",
+    fear: "6SugLh3r9BscE1Srn5Rf6B",
+    joy: "6SugLh3r9BscE1Srn5Rf6B",
+    sadness: "6SugLh3r9BscE1Srn5Rf6B",
+  };
+
   const displayInfo = (
     <div>
       <div> Comment:</div>
@@ -25,12 +24,12 @@ const CommentShow = (props) => {
     </div>
   );
     console.log("commentShow", props)
-    if(props && props.comment && props.playlistUrl){
+    if(props && props.comment){
       
       return (
       <div>
         <iframe
-          src={`https://open.spotify.com/embed/playlist/${props.comment.playlistUrl}` }
+          src={`https://open.spotify.com/embed/playlist/${playlist[props.comment.tone]}` }
           width="300"
           height="380"
           frameBorder="0"

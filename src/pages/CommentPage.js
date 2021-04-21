@@ -17,6 +17,8 @@ import CommentModel from "../models/comment";
 //setCommentId = match.params.id ??
 
 const CommentPage = ({ match }) => {
+  const [comment, setComment] = useState(null);
+  
   const playlist = {
     anger: "20Bbvjfo6UGSieemnaa62R",
     disgust: "6SugLh3r9BscE1Srn5Rf6B",
@@ -25,16 +27,15 @@ const CommentPage = ({ match }) => {
     sadness: "6SugLh3r9BscE1Srn5Rf6B",
   };
 
-  const [comment, setComment] = useState(null);
-
   useEffect(() =>{
     CommentModel.showById(match.params.id).then((data) => {
-      console.log("data", data, playlist, playlist[data.tone])
+      console.log("data", data, playlist, "playlist hash", playlist[data.tone])
+      console.log("match", match.params.id)
+      //setting the playlist object to the value of data.tone to match the tone
       data.playlistUrl = playlist[data.tone]
       setComment(data) 
     })
   },[match.params.id]);
-
 
   return (
     <div>

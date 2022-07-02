@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import Comment from "../components/Comment";
-import { Route } from "react-router-dom";
+//import Comment from "../components/Comment";
+//import { Route } from "react-router-dom";
 import CommentShow from "../components/CommentShow";
 import CommentModel from "../models/comment";
 
@@ -19,23 +19,14 @@ import CommentModel from "../models/comment";
 const CommentPage = ({ match }) => {
   const [comment, setComment] = useState(null);
   
-  const playlist = {
-    anger: "20Bbvjfo6UGSieemnaa62R",
-    disgust: "6SugLh3r9BscE1Srn5Rf6B",
-    fear: "6SugLh3r9BscE1Srn5Rf6B",
-    joy: "6SugLh3r9BscE1Srn5Rf6B",
-    sadness: "6SugLh3r9BscE1Srn5Rf6B",
-  };
-
   useEffect(() =>{
     CommentModel.showById(match.params.id).then((data) => {
-      console.log("data", data, playlist, "playlist hash", playlist[data.tone])
-      console.log("match", match.params.id)
       //setting the playlist object to the value of data.tone to match the tone
-      data.playlistUrl = playlist[data.tone]
       setComment(data) 
     })
   },[match.params.id]);
+  console.log(match.params.id)
+
 
   return (
     <div>

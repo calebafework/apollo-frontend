@@ -1,5 +1,3 @@
-import React, { useState } from "react";
-import CommentModel from "../models/comment";
 
 //use the props from the comment: id , tone , content
 //pass as props not hooks, set id to comment.id etc.

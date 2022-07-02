@@ -3,14 +3,15 @@
 body {
   margin: 0;
   font-family: 'Playfair Display SC', serif;
-  color: #466d86;
-  background-color: #e9e5d5ed;
-  
+  /* color: #212222; */
+  color: #f1f3e2;
+  /* background-color: #f7f2e2ed; */
+  /* background-color: #222220f1;    */
 }
 .links{
   font-family: 'Lato', sans-serif;
   position: absolute;
-  right: 0;
+  right: 3%;
   top: 0;
 
 }
